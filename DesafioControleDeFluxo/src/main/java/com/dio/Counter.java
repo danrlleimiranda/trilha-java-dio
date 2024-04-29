@@ -1,36 +1,38 @@
 package com.dio;
 
-import com.dio.exception.InvalidParamsException;
 import java.util.Scanner;
 
 public class Counter {
 
-  public static void main(String[] args) throws InvalidParamsException {
-    Scanner scanner = new Scanner(System.in);
-    System.out.println("Insira o primeiro parâmetro: ");
-    int parameterOne = scanner.nextInt();
-    scanner.nextLine();
-    System.out.println("Insira o segundo parâmetro: ");
-    int parameterTwo = scanner.nextInt();
+  public static void main(String[] args) {
 
-    try {
-      counter(parameterOne, parameterTwo);
-    } catch (InvalidParamsException exception) {
-      System.out.println(exception.getMessage());
+// TODO: Inicialize um bloco try-catch para capturar exceções:
+
+    try (Scanner scanner = new Scanner(System.in)) {
+      String conta = scanner.nextLine();
+      verificarNumeroConta(conta);
+    } catch (IllegalArgumentException e) {
+      System.out.println("Erro: " + e.getMessage());
     }
   }
 
-  public static void counter(int parameterOne, int parameterTwo) throws InvalidParamsException {
+  // Declaração do método verificarNumeroConta, que verifica se o número de conta tem exatamente 8 dígitos:
+  private static void verificarNumeroConta(String numeroConta) throws IllegalArgumentException {
 
-    if (parameterOne > parameterTwo) {
-      throw new InvalidParamsException("O segundo parâmetro deve ser maior que o primeiro");
+    // TODO: Verifique se o número da conta tem exatamente 8 dígitos:
+    if (numeroConta.length() != 8) {
+      throw new IllegalArgumentException("Erro: Numero de conta invalido. Digite exatamente 8 digitos.");
     }
 
-    int loops = parameterTwo - parameterOne;
+    System.out.println("Numero de conta valido.");
+    // TODO: Implemente uma exceção do tipo IllegalArgumentException, caso o número de conta não tenha 8 dígitos:
 
-    for (int index = 1; index <= loops; index++) {
-      System.out.printf("Imprimindo o número %s", index);
-      System.out.println();
-    }
+  }
+}
+
+
+public class IllegalArgumentException extends Exception {
+  public IllegalArgumentException(String message) {
+    super(message);
   }
 }
