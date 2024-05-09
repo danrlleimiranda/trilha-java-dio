@@ -2,44 +2,24 @@ package com.dio.entity;
 
 import com.dio.interfaces.IConta;
 
-public class ContaCorrente implements IConta {
+/**
+ * The type Conta corrente.
+ */
+public class ContaCorrente extends Conta {
 
-  private Double saldo;
-  private String conta;
-
-  public ContaCorrente(Double saldo, String conta) {
-    this.saldo = saldo;
-    this.conta = conta;
-  }
-
-  public String getConta() {
-    return conta;
-  }
-
-  public void setConta(String conta) {
-    this.conta = conta;
-  }
-
-  public Double getSaldo() {
-    return saldo;
-  }
-
-  public void setSaldo(Double saldo) {
-    this.saldo = saldo;
+  /**
+   * Instantiates a new Conta corrente.
+   *
+   * @param cliente the cliente
+   */
+  public ContaCorrente(Cliente cliente) {
+    super(cliente);
   }
 
   @Override
-  public void sacar(Double valor) {
-
+  public void imprimirExtrato() {
+    System.out.println("=== Extrato Conta Corrente ===");
+    super.imprimirInfosComuns();
   }
 
-  @Override
-  public void mostralExtrato() {
-
-  }
-
-  @Override
-  public void transferir(Double valor, IConta conta) {
-
-  }
 }

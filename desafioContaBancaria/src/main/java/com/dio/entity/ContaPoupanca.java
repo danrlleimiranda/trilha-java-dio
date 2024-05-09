@@ -2,23 +2,16 @@ package com.dio.entity;
 
 import com.dio.interfaces.IConta;
 
-public class ContaPoupanca implements IConta {
+public class ContaPoupanca extends Conta {
 
-  private Double saldo;
-  private String conta;
 
-  @Override
-  public void sacar(Double valor) {
-
+  public ContaPoupanca(Cliente cliente) {
+    super(cliente);
   }
 
   @Override
-  public void mostralExtrato() {
-
-  }
-
-  @Override
-  public void transferir(Double valor, IConta conta) {
-
+  public void imprimirExtrato() {
+    System.out.println("=== Extrato Conta Poupança ===");
+    super.imprimirInfosComuns();
   }
 }

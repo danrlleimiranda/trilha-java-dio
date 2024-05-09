@@ -2,6 +2,7 @@ package com.dio.interfaces;
 
 public interface IConta {
 void sacar(Double valor);
-void mostralExtrato();
-void transferir(Double valor, IConta conta);
+void transferir(Double valor, IConta contaDestino);
+void depositar(Double valor);
+void imprimirExtrato();
 }
