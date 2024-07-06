@@ -8,7 +8,6 @@ import com.dio.entity.ContaPoupanca;
 public class Main {
 
   public static void main(String[] args) {
-
     Cliente cliente1 = new Cliente();
     Cliente cliente2 = new Cliente();
     cliente1.setNome("Dan Miranda");
